@@ -14,10 +14,222 @@
       crossorigin="anonymous"
     />
   </head>
+    
   <body>
     <div class="container">
-      <h1>Weather App</h1>
+      <div class="card main-card shadow">
+        <div class="card-body">
+          <!-- List of cities -->
+
+          <div class="row city mb-4">
+            <div class="col-2 city-list">
+              <a href="#" class="city-link">London</a>
+            </div>
+            <div class="col-2 city-list">
+              <a href="#" class="city-link">Paris</a>
+            </div>
+            <div class="col-2 city-list">
+              <a href="#" class="city-link">Dubai</a>
+            </div>
+            <div class="col-2 city-list">
+              <a href="#" class="city-link">Tokyo</a>
+            </div>
+            <div class="col-2 city-list">
+              <a href="#" class="city-link">Kyiv</a>
+            </div>
+            <div class="col-2 city-list">
+              <a href="#" class="city-link">New York</a>
+            </div>
+          </div>
+
+          <!-- Search form  -->
+
+          <form class="search-form" id="search-form">
+            <div class="input-group mb-4 shadow-sm">
+              <input
+                type="Search"
+                class="form-control"
+                placeholder="Enter a city"
+                id="search-form-input"
+                autofocus="on"
+                autocomplete="off"
+              />
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-secondary shadow-sm" type="submit">
+                  Search
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  id="current-city-btn"
+                >
+                  Current
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!--  Current city and temperature -->
+
+          <div class="row">
+            <div class="col">
+              <h1 class="current-location" id="current-city"></h1>
+            </div>
+            <div class="col">
+              <p class="current-day" id="current-day">Thuesday, Sep 08</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <h2 class="current-location" id="country"></h2>
+            </div>
+            <div class="col">
+              <div class="card temperature-card shadow-sm">
+                <div class="card-body">
+                  <div class="current-temperature">
+                    <img
+                      src="img/sun.png"
+                      alt="Sun"
+                      width="70px"
+                      class="current-image"
+                    />
+                    <div class="current-temperature-value">
+                      <span class="temperature" id="temperature"></span
+                      ><span class="units">°C </span>
+                      <!-- <span class="units"
+                        ><a
+                          href="#"
+                          class="celsius-degrees"
+                          id="celsius-degrees"
+                          >°C</a
+                        >
+                        |
+                        <a
+                          href="#"
+                          class="fahrenheit-degrees"
+                          id="fahrenheit-dergees"
+                          >°F</a
+                        ></span
+                      > -->
+                    </div>
+                    <p class="current-description" id="current-description">
+                      Mostly sunny
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- details -->
+
+          <ul class="details">
+            <li class="details-list">
+              Wind: <span class="wind-value" id="wind-value"></span> km/h
+            </li>
+            <li class="details-list">
+              Humidity:
+              <span class="humidity-value" id="humidity-value"></span> %
+            </li>
+            <!-- <li class="details-list">
+              Precipitation: <span class="precipitation-value">83%</span>
+            </li> -->
+          </ul>
+
+          <!-- 5 days  -->
+
+          <div class="row">
+            <div class="col">
+              <div class="card next-day-card shadow-sm">
+                <div class="card-body">
+                  <p class="card-title next-day">Fri 09</p>
+                  <hr />
+                  <!-- <p class="card-text forecast-emoji">🌧️</p> -->
+                  <img src="img/rain.png" alt="raining" width="60" />
+                  <p class="card-text next-day-temperature">14°C</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card next-day-card shadow-sm">
+                <div class="card-body">
+                  <p class="card-title next-day">Sat 10</p>
+                  <hr />
+                  <!-- <p class="card-text forecast-emoji">🌧️</p> -->
+                  <img src="img/rain.png" alt="raining" width="60" />
+                  <p class="card-text next-day-temperature">15°C</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card next-day-card shadow-sm">
+                <div class="card-body">
+                  <p class="card-title next-day">Sun 11</p>
+                  <hr />
+                  <!-- <p class="card-text forecast-emoji">⛅</p> -->
+                  <img
+                    src="img/sun-behind-clouds.png"
+                    alt="sun behind clouds"
+                    width="60"
+                  />
+                  <p class="card-text next-day-temperature">18°C</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card next-day-card shadow-sm">
+                <div class="card-body">
+                  <p class="card-title next-day">Mon 12</p>
+                  <hr />
+                  <!-- <p class="card-text forecast-emoji">⛅</p> -->
+                  <img
+                    src="img/sun-behind-clouds.png"
+                    alt="sun behind clouds"
+                    width="60"
+                  />
+                  <p class="card-text next-day-temperature">21°C</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card next-day-card shadow-sm">
+                <div class="card-body">
+                  <p class="card-title next-day">Tue 13</p>
+                  <hr />
+                  <!-- <p class="card-text forecast-emoji">⛅</p> -->
+                  <img
+                    src="img/sun-behind-clouds.png"
+                    alt="sun behind clouds"
+                    width="60"
+                  />
+                  <p class="card-text next-day-temperature">21°C</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="created">
+            Created by
+            <a
+              href="https://www.shecodes.io/graduates/54185-evgeniya-firsova"
+              target="_blank"
+              class="creater"
+              >Evgeniya Firsova</a
+            >
+            and is
+            <a
+              href="https://github.com/f-evgeniya/Weather-app"
+              target="_blank"
+              class="creater"
+              >open-sourced on GitHub</a
+            >
+            and
+            <a href="https://www.netlify.com/" target="_blank" class="creater"
+              >hosted on Netlify</a
+            >
+          </p>
+        </div>
+      </div>
     </div>
-    <script src="./src/indes.js"></script>
+    <script src="./src/index.js"></script>
   </body>
 </html>
