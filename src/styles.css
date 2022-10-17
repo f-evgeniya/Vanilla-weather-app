@@ -1,0 +1,127 @@
+/* lato 400/700/900 PT Mono  
+font-family: 'Lato', sans-serif;
+font-family: 'PT Mono', monospace; */
+.main-card {
+  max-width: 650px;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 25px 25px 0;
+  font-family: "Lato", sans-serif;
+}
+
+.city-link {
+  font-size: 14px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  list-style: none;
+}
+.city-link:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.btn {
+  padding: 0 25px;
+}
+.current-day {
+  font-size: 24px;
+  text-align: right;
+}
+
+.current-location {
+  font-weight: 700;
+}
+.temperature-card {
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1;
+}
+.current-temperature {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.current-image {
+  text-align: left;
+  display: inline;
+  margin-left: -25px;
+}
+.current-temperature-value {
+  font-size: 38px;
+  font-weight: 700;
+  display: inline;
+  padding: 0 0 0 20px;
+}
+.units {
+  font-size: 22px;
+  position: relative;
+  top: -10px;
+}
+
+.celsius-degrees,
+.fahrenheit-degrees {
+  text-decoration: none;
+  color: black;
+}
+.celsius-degrees:hover,
+.fahrenheit-degrees:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.current-description {
+  font-size: 18px;
+  font-weight: normal;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+.details {
+  list-style: none;
+  font-size: 14px;
+  margin: 20px 0px 20px 350px;
+  text-align: left;
+}
+.wind-value {
+  font-weight: 400;
+  padding: 0 0 0 60px;
+}
+.humidity-value {
+  font-weight: 400;
+  padding: 0 0 0 50px;
+}
+/* .precipitation-value {
+  font-weight: 700;
+  padding: 0 0 0 30px;
+} */
+
+.next-day-card {
+  text-align: center;
+  transition: all 30ms ease-in-out;
+}
+.next-day-card:hover {
+  background-color: #e4f1fe;
+  cursor: pointer;
+}
+.next-day {
+  font-size: 16px;
+  font-weight: 700;
+}
+.forecast-emoji {
+  font-size: 28px;
+}
+.next-day-temperature {
+  font-family: "PT Mono", monospace;
+}
+.created {
+  font-family: "PT Mono", monospace;
+  margin: 50px 0 0 0;
+  font-size: 14px;
+}
+.creater {
+  color: black;
+}
+.creater:hover {
+  text-decoration: underline;
+  color: black;
+}
