@@ -45,14 +45,15 @@ font-family: 'PT Mono', monospace; */
 
 .current-temperature-value {
   font-size: 52px;
-  font-weight: 700;
+  font-weight: 400;
   display: flex;
-  padding: 0 0 0 20px;
-}
+  }
+
 .units {
   font-size: 22px;
   position: relative;
   top: 10px;
+  left: 5px;
 }
 
 .celsius-degrees,
