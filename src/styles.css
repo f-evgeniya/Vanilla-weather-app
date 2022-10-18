@@ -31,31 +31,28 @@ font-family: 'PT Mono', monospace; */
 .current-location {
   font-weight: 700;
 }
+
 .temperature-card {
   margin: 0 auto;
   text-align: center;
-  line-height: 1;
+ 
 }
 .current-temperature {
   list-style: none;
-  margin: 0;
-  padding: 0;
+   display: flex;
+   justify-content: center
 }
-.current-image {
-  text-align: left;
-  display: inline;
-  margin-left: -25px;
-}
+
 .current-temperature-value {
-  font-size: 38px;
+  font-size: 52px;
   font-weight: 700;
-  display: inline;
+  display: flex;
   padding: 0 0 0 20px;
 }
 .units {
   font-size: 22px;
   position: relative;
-  top: -10px;
+  top: 10px;
 }
 
 .celsius-degrees,
