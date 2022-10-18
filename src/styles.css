@@ -74,7 +74,11 @@ font-family: 'PT Mono', monospace; */
   font-weight: normal;
   text-align: right;
   margin-bottom: 0;
-}
+ }
+ 
+ .current-description::first-letter {
+   text-transform: uppercase;
+ }
 
 .details {
   list-style: none;
