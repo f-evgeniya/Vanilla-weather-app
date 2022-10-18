@@ -94,21 +94,21 @@ form.addEventListener("submit", handleSubmit);
 
 // current city
 
-function getPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let units = "metric";
-  let apiKey = "428c5a1922cc616027d52a04d4c4168b";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showTemperature);
-}
+// function getPosition(position) {
+//   let lat = position.coords.latitude;
+//   let lon = position.coords.longitude;
+//   let units = "metric";
+//   let apiKey = "428c5a1922cc616027d52a04d4c4168b";
+//   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+//   axios.get(apiUrl).then(showTemperature);
+// }
 
-function findGeoposition() {
-  navigator.geolocation.getCurrentPosition(getPosition);
-}
+// function findGeoposition() {
+//   navigator.geolocation.getCurrentPosition(getPosition);
+// }
 
-let currentBtn = document.querySelector("#current-city-btn");
-currentBtn.addEventListener("click", findGeoposition);
+// let currentBtn = document.querySelector("#current-city-btn");
+// currentBtn.addEventListener("click", findGeoposition);
 
 search("Kharkiv");
 // temp change CelciusToFahrenheit
