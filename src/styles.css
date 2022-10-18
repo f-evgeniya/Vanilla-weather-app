@@ -70,12 +70,13 @@ font-family: 'PT Mono', monospace; */
 }
 
 .current-description {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
-  text-align: right;
+  text-align: center;
   margin-bottom: 0;
+  margin-top: 18px;
  }
- 
+
  .current-description::first-letter {
    text-transform: uppercase;
  }
