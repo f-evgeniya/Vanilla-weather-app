@@ -59,6 +59,15 @@ function showTemperature(response) {
   )}`;
   document.querySelector("#current-description").innerHTML =
     response.data.weather[0].description;
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon")
+    .setAttribute("alt", response.data.weather[0].description);
 
   let regionNamesInEnglish = new Intl.DisplayNames(["en"], {
     type: "region",
@@ -86,7 +95,6 @@ form.addEventListener("submit", handleSubmit);
 // current city
 
 function getPosition(position) {
-  console.log(position);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let units = "metric";
