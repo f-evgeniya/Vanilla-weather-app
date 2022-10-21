@@ -69,6 +69,8 @@ function showTemperature(response) {
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
 
+  celsiusTemp = Math.round(response.data.main.temp);
+
   let regionNamesInEnglish = new Intl.DisplayNames(["en"], {
     type: "region",
   });
@@ -111,29 +113,29 @@ let currentBtn = document.querySelector("#current-city-btn");
 currentBtn.addEventListener("click", findGeoposition);
 
 search("Kharkiv");
+
 // temp change CelciusToFahrenheit
 
-// function changeToFahrenheit(event) {
-//   event.preventDefault();
-//   // let temp = 18;
-//   let currentTemp = document.querySelector("#temperature");
-//   let temperature = currentTemp.innerHTML;
-//   temperature = Number(temperature);
-//   currentTemp.innerHTML = Math.round((temperature * 9) / 5 + 32);
-// }
+function changeToFahrenheit(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#temperature");
+  showCelsius.classList.remove("active");
+showFahrenheit.classList.add("active");
+  currentTemp.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
+}
 
-// function changeToCelsius(event) {
-//   event.preventDefault();
-//   // let temp = 18;
-//   let currentTemp = document.querySelector("#temperature");
-//   let temperature = currentTemp.innerHTML;
-//   temperature = Number(temperature);
-//   currentTemp.innerHTML = Math.round(((temperature - 32) * 5) / 9);
-// }
+function changeToCelsius(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#temperature");
+  showCelsius.classList.add("active");
+  showFahrenheit.classList.remove("active");
+  currentTemp.innerHTML = Math.round(celsiusTemp);
+}
 
-// let showFahrenheit = document.querySelector("#fahrenheit-dergees");
-// showFahrenheit.addEventListener("click", changeToFahrenheit);
+let celsiusTemp = null;
 
-// let showCelsius = document.querySelector("#celsius-degrees");
-// showCelsius.addEventListener("click", changeToCelsius);
-//
+let showFahrenheit = document.querySelector("#fahrenheit-dergees");
+showFahrenheit.addEventListener("click", changeToFahrenheit);
+
+let showCelsius = document.querySelector("#celsius-degrees");
+showCelsius.addEventListener("click", changeToCelsius);
