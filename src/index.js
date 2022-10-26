@@ -44,6 +44,28 @@ let currentDay = document.querySelector("#current-day");
 currentDay.innerHTML = formatDate(currentTime);
 
 // Show Temperature based on the city
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+              <div class="card next-day-card shadow-sm">
+                <div class="card-body">
+                  <p class="card-title next-day">${day}</p>
+                  <hr />
+                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="raining" width="60" />
+                  <p class="card-text next-day-temperature">14°C</p>
+                </div>
+              </div>
+            </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function showTemperature(response) {
   console.log(response);
@@ -120,7 +142,7 @@ function changeToFahrenheit(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#temperature");
   showCelsius.classList.remove("active");
-showFahrenheit.classList.add("active");
+  showFahrenheit.classList.add("active");
   currentTemp.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
 }
 
@@ -133,6 +155,8 @@ function changeToCelsius(event) {
 }
 
 let celsiusTemp = null;
+
+displayForecast();
 
 let showFahrenheit = document.querySelector("#fahrenheit-dergees");
 showFahrenheit.addEventListener("click", changeToFahrenheit);
