@@ -9,17 +9,6 @@ font-family: 'PT Mono', monospace; */
   font-family: "Lato", sans-serif;
 }
 
-.city-link {
-  font-size: 14px;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  list-style: none;
-}
-.city-link:hover {
-  color: black;
-  text-decoration: underline;
-}
-
 .btn {
   padding: 0 25px;
 }
@@ -58,18 +47,17 @@ font-family: 'PT Mono', monospace; */
 .celsius-degrees,
 .fahrenheit-degrees {
   text-decoration: none;
-   cursor: default;
+  cursor: default;
   color: black;
   opacity: 0.7;
 }
 .units .active {
-opacity: 1;
+  opacity: 1;
 }
 .units .active:hover {
-opacity: 1;
-color: black;
+  opacity: 1;
+  color: black;
 }
-
 
 .current-description {
   font-size: 18px;

@@ -42,12 +42,9 @@ let currentTime = new Date();
 let currentDay = document.querySelector("#current-day");
 currentDay.innerHTML = formatDate(currentTime);
 
-
 // Show Temperature based on the city
 
-
 function displayForecast(response) {
- 
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -73,7 +70,6 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
@@ -82,10 +78,9 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-
 function showTemperature(response) {
   console.log(response);
-  
+
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -108,11 +103,10 @@ function showTemperature(response) {
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
 
-celsiusTemp = Math.round(response.data.main.temp);
-  
-  
-  // showCelsius.classList.add("active");
-  // showFahrenheit.classList.remove("active");
+  celsiusTemp = Math.round(response.data.main.temp);
+
+  showCelsius.classList.add("active");
+  showFahrenheit.classList.remove("active");
 
   let regionNamesInEnglish = new Intl.DisplayNames(["en"], {
     type: "region",
@@ -140,6 +134,8 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+
+
 // current city
 
 function getPosition(position) {
@@ -157,7 +153,6 @@ function findGeoposition() {
 
 let currentBtn = document.querySelector("#current-city-btn");
 currentBtn.addEventListener("click", findGeoposition);
-
 
 search("Kharkiv");
 // temp change CelciusToFahrenheit
