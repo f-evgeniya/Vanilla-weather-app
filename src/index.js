@@ -44,7 +44,8 @@ let currentDay = document.querySelector("#current-day");
 currentDay.innerHTML = formatDate(currentTime);
 
 // Show Temperature based on the city
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -65,6 +66,14 @@ function displayForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showTemperature(response) {
@@ -99,8 +108,11 @@ function showTemperature(response) {
   document.querySelector("#country").innerHTML = regionNamesInEnglish.of(
     response.data.sys.country
   );
+
+  getForecast(response.data.coord);
 }
 // searchCity
+
 function search(city) {
   let units = "metric";
   let apiKey = "428c5a1922cc616027d52a04d4c4168b";
