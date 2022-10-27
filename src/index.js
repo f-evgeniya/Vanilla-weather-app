@@ -1,4 +1,3 @@
-// date
 function formatDate(date) {
   let days = [
     "Sunday",
@@ -43,7 +42,10 @@ let currentTime = new Date();
 let currentDay = document.querySelector("#current-day");
 currentDay.innerHTML = formatDate(currentTime);
 
+
 // Show Temperature based on the city
+
+
 function displayForecast(response) {
   console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
@@ -59,7 +61,10 @@ function displayForecast(response) {
                   <p class="card-title next-day">${day}</p>
                   <hr />
                   <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="raining" width="60" />
-                  <p class="card-text next-day-temperature">14°C</p>
+                  <div class="weather-forecast-temperature">
+            <span class="weather-forecast-temperature-max">15° </span>
+            <span class="weather-forecast-temperature-min">12° </span>
+          </div>
                 </div>
               </div>
             </div>`;
@@ -68,6 +73,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
+
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
@@ -75,6 +81,7 @@ function getForecast(coordinates) {
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
+
 
 function showTemperature(response) {
   console.log(response);
@@ -100,7 +107,10 @@ function showTemperature(response) {
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
 
+  
   celsiusTemp = Math.round(response.data.main.temp);
+  // showCelsius.classList.add("active");
+  // showFahrenheit.classList.remove("active");
 
   let regionNamesInEnglish = new Intl.DisplayNames(["en"], {
     type: "region",

@@ -58,12 +58,14 @@ font-family: 'PT Mono', monospace; */
 .celsius-degrees,
 .fahrenheit-degrees {
   text-decoration: none;
-  color: rgb(104, 105, 105);
-  cursor: default;
+   cursor: default;
+  color: black;
+  opacity: 0.7;
 }
 .units .active {
-  color: black;
+opacity: 1;
 }
+
 
 .current-description {
   font-size: 18px;
@@ -73,7 +75,7 @@ font-family: 'PT Mono', monospace; */
   margin-top: 18px;
 }
 
-.current-description::first-letter {
+.current-description:first-letter {
   text-transform: uppercase;
 }
 
@@ -91,10 +93,6 @@ font-family: 'PT Mono', monospace; */
   font-weight: 400;
   padding: 0 0 0 50px;
 }
-/* .precipitation-value {
-  font-weight: 700;
-  padding: 0 0 0 30px;
-} */
 
 .next-day-card {
   text-align: center;
@@ -108,8 +106,9 @@ font-family: 'PT Mono', monospace; */
   font-size: 16px;
   font-weight: 700;
 }
-.forecast-emoji {
-  font-size: 28px;
+.weather-forecast-temperature-min {
+  opacity: 0.7;
+  margin-left: 6px;
 }
 .next-day-temperature {
   font-family: "PT Mono", monospace;
