@@ -32,7 +32,6 @@ function formatDate(date) {
     minutes = `0${minutes}`;
   }
   let day = days[date.getDay()];
-  let shortDay = day.slice(0, 3);
   let month = months[date.getMonth()];
   let dateIndex = date.getDate();
 
@@ -42,45 +41,59 @@ let currentTime = new Date();
 let currentDay = document.querySelector("#current-day");
 currentDay.innerHTML = formatDate(currentTime);
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 // Show Temperature based on the city
 
 function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML += `<div class="col">
               <div class="card next-day-card shadow-sm">
                 <div class="card-body">
-                  <p class="card-title next-day">${day}</p>
+                  <p class="card-title next-day">${formatDay(
+                    forecastDay.dt
+                  )}</p>
                   <hr />
-                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="raining" width="60" />
+                  <img src="http://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png" alt="raining" width="60" />
                   <div class="weather-forecast-temperature">
-            <span class="weather-forecast-temperature-max">15° </span>
-            <span class="weather-forecast-temperature-min">12° </span>
+            <span class="weather-forecast-temperature-max">${Math.round(
+              forecastDay.temp.max
+            )}° </span>
+            <span class="weather-forecast-temperature-min">${Math.round(
+              forecastDay.temp.min
+            )}° </span>
           </div>
                 </div>
               </div>
             </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
 function showTemperature(response) {
-  console.log(response);
-
+  celsiusTemp = Math.round(response.data.main.temp);
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -102,8 +115,6 @@ function showTemperature(response) {
   document
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
-
-  celsiusTemp = Math.round(response.data.main.temp);
 
   showCelsius.classList.add("active");
   showFahrenheit.classList.remove("active");
@@ -134,8 +145,6 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-
-
 // current city
 
 function getPosition(position) {
@@ -159,23 +168,21 @@ search("Kharkiv");
 
 function changeToFahrenheit(event) {
   event.preventDefault();
-  let currentTemp = document.querySelector("#temperature");
   showCelsius.classList.remove("active");
   showFahrenheit.classList.add("active");
+  let currentTemp = document.querySelector("#temperature");
   currentTemp.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
 }
 
 function changeToCelsius(event) {
   event.preventDefault();
-  let currentTemp = document.querySelector("#temperature");
   showCelsius.classList.add("active");
   showFahrenheit.classList.remove("active");
+  let currentTemp = document.querySelector("#temperature");
   currentTemp.innerHTML = Math.round(celsiusTemp);
 }
 
 let celsiusTemp = null;
-
-displayForecast();
 
 let showFahrenheit = document.querySelector("#fahrenheit-dergees");
 showFahrenheit.addEventListener("click", changeToFahrenheit);
