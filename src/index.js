@@ -23,19 +23,11 @@ function formatDate(date) {
     "Dec",
   ];
 
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
   let day = days[date.getDay()];
   let month = months[date.getMonth()];
   let dateIndex = date.getDate();
 
-  return `${hours}:${minutes} ${day}, ${month} ${dateIndex}`;
+  return `${day}, ${month} ${dateIndex}`;
 }
 let currentTime = new Date();
 let currentDay = document.querySelector("#current-day");
@@ -44,7 +36,7 @@ currentDay.innerHTML = formatDate(currentTime);
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   return days[day];
 }
