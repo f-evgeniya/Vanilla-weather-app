@@ -47,7 +47,7 @@ currentDay.innerHTML = formatDate(currentTime);
 
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+ 
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -85,6 +85,7 @@ function getForecast(coordinates) {
 
 function showTemperature(response) {
   console.log(response);
+  
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -107,8 +108,9 @@ function showTemperature(response) {
     .querySelector("#icon")
     .setAttribute("alt", response.data.weather[0].description);
 
+celsiusTemp = Math.round(response.data.main.temp);
   
-  celsiusTemp = Math.round(response.data.main.temp);
+  
   // showCelsius.classList.add("active");
   // showFahrenheit.classList.remove("active");
 
@@ -156,8 +158,8 @@ function findGeoposition() {
 let currentBtn = document.querySelector("#current-city-btn");
 currentBtn.addEventListener("click", findGeoposition);
 
-search("Kharkiv");
 
+search("Kharkiv");
 // temp change CelciusToFahrenheit
 
 function changeToFahrenheit(event) {

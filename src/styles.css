@@ -65,6 +65,10 @@ font-family: 'PT Mono', monospace; */
 .units .active {
 opacity: 1;
 }
+.units .active:hover {
+opacity: 1;
+color: black;
+}
 
 
 .current-description {
